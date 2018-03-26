@@ -1,0 +1,22 @@
+/* Author: Ameya Joshi */
+/* Last Updated: March 26, 2018 */
+
+body {
+    background-color: #000;
+}
+
+.container {
+    text-align: center;
+    margin: 0px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.applicationName {
+    color: #eee;
+    font-size: 2em;
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+    letter-spacing: 0.05em;
+}
