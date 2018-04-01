@@ -6,15 +6,15 @@
 	
 	<title>T.R.A.C.K.</title>
    	<meta charset="utf-8">
-   	<meta name="author" content="Ameya Joshi">
-   	<meta name="description" content="This is a single-page app that assists in tracking of flights in the YS Flight Simulator">
+   	<meta name="author" content="Turbofan">
+   	<meta name="description" content="This is a single-page app that assists in tracking of flights in the YS Flight Simliator">
 	<meta name="keywords" content="Terminal Region Airspace Control Kit">
 	
 	
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
 
-	<!-- Links to the local .css sheet -->
+	<!-- anks to the local .css and .js sheets -->
 	<link rel="stylesheet" href="track.css">
 
 	<script type="text/javascript" src="track.js"></script>
@@ -27,8 +27,35 @@
 	<div class="container">
 		<h1 class="applicationName">Terminal Region Airspace Control Kit</h1>
 
+		<div class="menuBar">
+			<button>Help</button>
+		</div>
+
 		<div class="flightInfoGenerator">
-			
+			<fieldset>
+				<legend>Generate Flight Information</legend>
+				<div class="inputDivs">
+					<button class="chooseVACode">Choose a VA</button>
+					<div class="vaCodes">
+						<a href="#">NCA</a>
+						<a href="#">BFT</a>
+						<a href="#">GBL</a>
+						<a href="#">RGL</a>
+						<a href="#">STR</a>
+						<a href="#">STE</a>
+						<a href="#">THI</a>
+						<a href="#">ABJ</a>
+						<a href="#">ABL</a>
+						<a href="#">PGN</a>
+					</div>
+				</div>
+				<div class="userInput">
+					Flt No.: <input type="text" name="flightNumber" value="Enter flight number">
+				</div>
+				<div class="userInput">
+					Aircraft Type: <input type="text" name="aircraftType" value="Enter aircraft type">
+				</div>
+			</fieldset>
 		</div>
 	</div> <!-- End of container div -->
 </body>

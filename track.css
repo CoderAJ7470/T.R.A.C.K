@@ -1,22 +1,125 @@
-/* Author: Ameya Joshi */
+/* Author: Turbofan */
 /* Last Updated: March 26, 2018 */
 
+
+/********** Page-wide styles **********/
+
+/* Color palette for application */
+:root {
+    --blackboard: #222831;
+    --slate: #393e46;
+    --blue: #0092ca;
+    --hoverBlue: #07F;
+    --cream: #eeeeee;
+}
+
 body {
-    background-color: #000;
+    background-color: var(--blackboard);
+    margin: 0px;
 }
 
 .container {
     text-align: center;
     margin: 0px;
-    width: 70%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
 }
 
+/********** Title Area Styles **********/
+
 .applicationName {
-    color: #eee;
+    color: var(--cream);
     font-size: 2em;
     font-family: 'Open Sans', sans-serif;
     font-style: italic;
     letter-spacing: 0.05em;
 }
+
+.menuBar button {
+    float: left;
+    padding: 0.7em;
+    background-color: var(--blue);
+    color: var(--cream);
+    border-radius: 0.8em;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.2em;
+}
+
+/********** Flight Info Generator Area Styles **********/
+
+.flightInfoGenerator {
+    background-color: var(--cream);
+    border-radius: 0.8em;
+    clear: left;
+    padding: 0.5em 0.5em 0.8em 0.5em;
+}
+
+.flightInfoGenerator button {
+    background-color: var(--blackboard);
+    color: var(--cream);
+    border-radius: 0.8em;
+    letter-spacing: 0.08em;
+    padding: 0.9em;
+    line-height: 1.3em;
+}
+
+.flightInfoGenerator .userInput {
+    background-color: var(--blackboard);
+    color: var(--cream);
+    display: inline-block;
+    border-radius: 0.6em;
+    padding: 0.6em;
+    margin-right: 0.8em;
+}
+
+.flightInfoGenerator .userInput input {
+    border: none;
+    margin-left: 0.5em;
+    background-color: var(--cream);
+    color: var(--blackboard);
+    border-radius: 0.1em;
+}
+
+fieldset {
+    font-family: "Open Sans", sans-serif;
+    text-align: left;
+}
+
+.inputDivs {
+    display: inline-block;
+    position: relative;
+    margin-right: 0.8em;
+}
+
+.vaCodes {
+    display: none;
+    position: absolute;
+    background-color: var(--blue);
+    z-index: 1;
+    border-radius: 0.8em;
+    width: 6.7em;
+}
+
+.vaCodes a {
+    color: var(--cream);
+    padding: 0.5em;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.vaCodes a:hover {
+    background-color: var(--hoverBlue);
+}
+
+.vaCodes a:first-child:hover {
+    border-top-left-radius: 0.8em;
+    border-top-right-radius: 0.8em;
+}
+
+.vaCodes a:last-child:hover {
+    border-bottom-left-radius: 0.8em;
+    border-bottom-right-radius: 0.8em;
+}
+
