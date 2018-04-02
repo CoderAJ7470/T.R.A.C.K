@@ -11,6 +11,9 @@
     --blue: #0092ca;
     --hoverBlue: #07F;
     --cream: #eeeeee;
+    --departureGreen: #070;
+    --arrivalBlue: #005AC8;
+    --warning: #900;
 }
 
 body {
@@ -36,26 +39,44 @@ body {
     letter-spacing: 0.05em;
 }
 
+/********** Menu Bar Styles **********/
+
 .menuBar button {
     float: left;
     padding: 0.7em;
-    background-color: var(--blue);
     color: var(--cream);
     border-radius: 0.8em;
     letter-spacing: 0.08em;
     margin-bottom: 1.2em;
+    margin-right: 1em;
+}
+
+.menuBar .helpButton {
+    background-color: var(--blue);
+}
+
+.menuBar .reset, .menuBar .resetAll {
+    background-color: var(--warning);
 }
 
 /********** Flight Info Generator Area Styles **********/
 
 .flightInfoGenerator {
-    background-color: var(--cream);
+    background-color: var(--slate);
     border-radius: 0.8em;
     clear: left;
     padding: 0.5em 0.5em 0.8em 0.5em;
 }
 
-.flightInfoGenerator button {
+.flightInfoGenerator .chooseVACode {
+    width: 8.5em;
+}
+
+.flightInfoGenerator .chooseFlightStatus {
+    width: 5em;
+}
+
+.flightInfoGenerator .chooseVACode, .flightInfoGenerator .chooseFlightStatus {
     background-color: var(--blackboard);
     color: var(--cream);
     border-radius: 0.8em;
@@ -64,10 +85,15 @@ body {
     line-height: 1.3em;
 }
 
+span {
+    margin-right: 0.8em;
+}
+
 .flightInfoGenerator .userInput {
     background-color: var(--blackboard);
     color: var(--cream);
     display: inline-block;
+    border: 2px solid var(--cream);
     border-radius: 0.6em;
     padding: 0.6em;
     margin-right: 0.8em;
@@ -83,7 +109,10 @@ body {
 
 fieldset {
     font-family: "Open Sans", sans-serif;
-    text-align: left;
+    text-align: center;
+    color: var(--cream);
+    padding-top: 0.8em;
+    padding-bottom: 1.2em;
 }
 
 .inputDivs {
@@ -92,16 +121,23 @@ fieldset {
     margin-right: 0.8em;
 }
 
-.vaCodes {
+.vaCodes, .depOrArr {
     display: none;
     position: absolute;
     background-color: var(--blue);
     z-index: 1;
     border-radius: 0.8em;
-    width: 6.7em;
 }
 
-.vaCodes a {
+.vaCodes {
+    width: 7em;
+}
+
+.depOrArr {
+    width: 4.4em;
+}
+
+.vaCodes a, .depOrArr a {
     color: var(--cream);
     padding: 0.5em;
     text-decoration: none;
@@ -121,5 +157,26 @@ fieldset {
 .vaCodes a:last-child:hover {
     border-bottom-left-radius: 0.8em;
     border-bottom-right-radius: 0.8em;
+}
+
+.depOrArr a:first-child:hover {
+    background-color: var(--departureGreen);
+    border-top-left-radius: 0.8em;
+    border-top-right-radius: 0.8em;
+}
+
+.depOrArr a:last-child:hover {
+    background-color: var(--arrivalBlue);
+    border-bottom-left-radius: 0.8em;
+    border-bottom-right-radius: 0.8em;
+}
+
+.generateFlightTab {
+    background-color: var(--departureGreen);
+    color: var(--cream);
+    border-radius: 0.8em;
+    letter-spacing: 0.08em;
+    padding: 0.9em;
+    line-height: 1.3em;
 }
 
