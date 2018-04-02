@@ -13,12 +13,12 @@
 	
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-	<!-- anks to the local .css and .js sheets -->
+	<!-- links to the local .css and .js sheets -->
 	<link rel="stylesheet" href="track.css">
 
 	<script type="text/javascript" src="track.js"></script>
-	
 	
 </head>
 
@@ -28,7 +28,9 @@
 		<h1 class="applicationName">Terminal Region Airspace Control Kit</h1>
 
 		<div class="menuBar">
-			<button>Help</button>
+			<button class="reset">Reset Tab Info</button>
+			<button class="resetAll">Reset All</button>
+			<button class="helpButton">Help</button>
 		</div>
 
 		<div class="flightInfoGenerator">
@@ -49,11 +51,25 @@
 						<a href="#">PGN</a>
 					</div>
 				</div>
+				<span>or</span>
 				<div class="userInput">
-					Flt No.: <input type="text" name="flightNumber" value="Enter flight number">
+						<label>Enter VA Code: </label><input type="text" name="vaCode" size="3">
 				</div>
 				<div class="userInput">
-					Aircraft Type: <input type="text" name="aircraftType" value="Enter aircraft type">
+					<label>Flt No.: </label><input type="text" name="flightNumber" size="4">
+				</div>
+				<div class="userInput">
+					<label>Aircraft Type: </label><input type="text" name="aircraftType" size="4">
+				</div>
+				<div class="inputDivs">
+					<button class="chooseFlightStatus">Status</button>
+					<div class="depOrArr">
+						<a href="#">Dep</a>
+						<a href="#">Arr</a>
+					</div>
+				</div>
+				<div class="inputDivs">
+					<button class="generateFlightTab">Go!</button>
 				</div>
 			</fieldset>
 		</div>
