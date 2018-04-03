@@ -59,7 +59,7 @@ body {
     background-color: var(--warning);
 }
 
-/********** Flight Info Generator Area Styles **********/
+/********** Flight Info Generator Tab Styles **********/
 
 .flightInfoGenerator {
     background-color: var(--slate);
@@ -133,10 +133,6 @@ fieldset {
     width: 7em;
 }
 
-.depOrArr {
-    width: 4.4em;
-}
-
 .vaCodes a, .depOrArr a {
     color: var(--cream);
     padding: 0.5em;
@@ -159,6 +155,14 @@ fieldset {
     border-bottom-right-radius: 0.8em;
 }
 
+.vaCodeInput {
+    text-transform: uppercase;
+}
+
+.depOrArr {
+    width: 4.4em;
+}
+
 .depOrArr a:first-child:hover {
     background-color: var(--departureGreen);
     border-top-left-radius: 0.8em;
@@ -171,7 +175,7 @@ fieldset {
     border-bottom-right-radius: 0.8em;
 }
 
-.generateFlightTab {
+.generateFlightTabButton {
     background-color: var(--departureGreen);
     color: var(--cream);
     border-radius: 0.8em;
@@ -180,3 +184,9 @@ fieldset {
     line-height: 1.3em;
 }
 
+/********** Flight Status Table Styles **********/
+
+.flightStatusTable {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}

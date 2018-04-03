@@ -35,31 +35,31 @@
 
 		<div class="flightInfoGenerator">
 			<fieldset>
-				<legend>Generate Flight Information</legend>
+				<legend>Generate Flight Information Tab</legend>
 				<div class="inputDivs">
 					<button class="chooseVACode">Choose a VA</button>
 					<div class="vaCodes">
-						<a href="#">NCA</a>
-						<a href="#">BFT</a>
-						<a href="#">GBL</a>
-						<a href="#">RGL</a>
-						<a href="#">STR</a>
-						<a href="#">STE</a>
-						<a href="#">THI</a>
-						<a href="#">ABJ</a>
-						<a href="#">ABL</a>
-						<a href="#">PGN</a>
+						<a href="javascript:void(0)">NCA</a>
+						<a href="javascript:void(0)">BFT</a>
+						<a href="javascript:void(0)">GBL</a>
+						<a href="javascript:void(0)">RGL</a>
+						<a href="javascript:void(0)">STR</a>
+						<a href="javascript:void(0)">STE</a>
+						<a href="javascript:void(0)">THI</a>
+						<a href="javascript:void(0)">ABJ</a>
+						<a href="javascript:void(0)">ABL</a>
+						<a href="javascript:void(0)">PGN</a>
 					</div>
 				</div>
 				<span>or</span>
 				<div class="userInput">
-						<label>Enter VA Code: </label><input type="text" name="vaCode" size="3">
+					<label>Enter VA Code: </label><input type="text" name="vaCode" size="3" class="vaCodeInput">
 				</div>
 				<div class="userInput">
-					<label>Flt No.: </label><input type="text" name="flightNumber" size="4">
+					<label>Flt No.: </label><input type="text" name="flightNumber" size="4" class="fltNoInput">
 				</div>
 				<div class="userInput">
-					<label>Aircraft Type: </label><input type="text" name="aircraftType" size="4">
+					<label>Aircraft Type: </label><input type="text" name="aircraftType" size="4" class="aircraftTypeInput">
 				</div>
 				<div class="inputDivs">
 					<button class="chooseFlightStatus">Status</button>
@@ -69,9 +69,18 @@
 					</div>
 				</div>
 				<div class="inputDivs">
-					<button class="generateFlightTab">Go!</button>
+					<button class="generateFlightTabButton">Go!</button>
 				</div>
 			</fieldset>
+		</div> <!-- End of flight information tab generator div -->
+
+		<div class="flightStatusTable">
+			<div class="departuresList">
+				<ul></ul>
+			</div>
+			<div class="arrivalsList">
+				<ul></ul>
+			</div>
 		</div>
 	</div> <!-- End of container div -->
 </body>
