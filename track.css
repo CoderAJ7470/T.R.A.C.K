@@ -14,6 +14,7 @@
     --departureGreen: #070;
     --arrivalBlue: #005AC8;
     --warning: #900;
+    --error: #f00;
 }
 
 body {
@@ -37,6 +38,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-style: italic;
     letter-spacing: 0.05em;
+    margin-bottom: 2em;
 }
 
 /********** Menu Bar Styles **********/
@@ -59,12 +61,27 @@ body {
     background-color: var(--warning);
 }
 
+.errors {
+    font-family: "Open Sans", sans-serif;
+    float: right;
+    padding: 0.7em;
+    color: var(--error);
+    font-size: 0.7em;
+    height: 3em;
+    width: 20em;
+    overflow: auto;
+}
+
+.errors p {
+    margin-top: 0em;
+}
+
 /********** Flight Info Generator Tab Styles **********/
 
 .flightInfoGenerator {
     background-color: var(--slate);
     border-radius: 0.8em;
-    clear: left;
+    clear: both;
     padding: 0.5em 0.5em 0.8em 0.5em;
 }
 
