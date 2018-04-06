@@ -85,10 +85,10 @@ $(function(){
             }
         }
 
-        // if(pattern.test(flightNumberString) || flightNumberString == "") {
-        //     alert("ehhhh!");
-        //     return false;
-        // }
+        if(pattern.test(flightNumberString) || flightNumberString == "") {
+            alert("ehhhh!");
+            return false;
+        }
 
         userInputValid = true;
         return true;
