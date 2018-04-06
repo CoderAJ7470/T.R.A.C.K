@@ -10,7 +10,12 @@ $(function(){
     let fltNoInput = $(".fltNoInput");
     let aircraftTypeInput = $(".aircraftTypeInput");
     let goButton = $(".generateFlightTabButton");
-    let userInputValid = false;
+    let userInputValid = "";
+    let vaCodeValid = "";
+    let flightNumberValid = "";
+    let aircraftTypeValid = "";
+    let statusValid = "";
+    
 
     /* Re-set input fields on window refresh */
     window.onload = function(){
@@ -38,7 +43,6 @@ $(function(){
 
     $(goButton).on("click", function(){
         validateUserInputs();
-        generateFlightTab();
     });
 
     $(vaCodeInput).change(function(){
@@ -74,34 +78,57 @@ $(function(){
         let flightNumberString = $(fltNoInput).val();
         let aircraftTypeString = $(aircraftTypeInput).val();
         let statusString = $(statusButton).html();
+        let vaCodePattern = new RegExp("[a-zA-Z0-9]{2,3}");
+        let flightNumberPattern = new RegExp("^[0-9a-zA-Z]+$");
+        let vaCodeValid = true;
+        let flightNumberValid = true;
+        let aircraftTypeValid = true;
+        let statusValid = true;
 
-        let pattern = new RegExp(/[@~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/);
-        alert("vacodeString is " + vaCodeString);
+        userInputValid = true;
+
+        // alert("vacodeString is " + vaCodeString);
 
         if(vaCodeButtonChoice == "Choose a VA") {
-            if(pattern.test(vaCodeString) || vaCodeString == "") {
-                alert("ehhhh!");
-                return false;
+            if(!vaCodePattern.test(vaCodeString) || vaCodeString == "") {
+                // alert("va code invalid");
+                userInputValid = false;
+                vaCodeValid = false;
             }
         }
 
-        if(pattern.test(flightNumberString) || flightNumberString == "") {
-            alert("ehhhh!");
+        if(!flightNumberPattern.test(flightNumberString) || flightNumberString == "") {
+            // alert("flight number invalid");
+            userInputValid = false;
+            flightNumberValid = false;
+        }
+
+        if(aircraftTypeString == "") {
+            // alert("aircraft type not filled");
+            userInputValid = false;
+            aircraftTypeValid = false;
+        }
+
+        if(statusString == "Status") {
+            // alert("status not chosen");
+            userInputValid = false;
+            statusValid = false;
+        }
+
+        if(!userInputValid) {
+            showErrors(vaCodeValid, flightNumberValid, aircraftTypeValid, statusValid);
             return false;
         }
-
-        userInputValid = true;
-        return true;
+        else {
+            resetErrors();
+            resetFlightTabGenerator();
+            generateFlightTab();
+        }
     }
 
-    /* Generates a flight tab based on the user inputs if the data is valid */
+    /* Generates a flight tab based on the user inputs */
     function generateFlightTab() {
-
-        if(userInputValid){
-            resetFlightTabGenerator();
-            alert("Tab generating successful!");
-        }
-        userInputValid = false;
+        alert("Tab generating successful!");
     }
 
     /* Re-sets all buttons and fields back to default state */
@@ -111,6 +138,32 @@ $(function(){
         $(fltNoInput).val("");
         $(aircraftTypeInput).val("");
         $(statusButton).html("Status");
+    }
+
+    /* Shows all errors and what needs to be corrected */
+    function showErrors(isVaCodeValid, isFlightNumberValid, isAircraftValid, isStatusValid) {
+        // first clear the error div's contents
+        resetErrors();
+
+        if(!isVaCodeValid) {
+            $(".errors").append("<p>Invalid VA Code</p>");
+        }
+
+        if(!isFlightNumberValid) {
+            $(".errors").append("<p>Invalid flight number</p>");
+        }
+
+        if(!isAircraftValid) {
+            $(".errors").append("<p>Invalid aircraft type</p>");
+        }
+
+        if(!isStatusValid) {
+            $(".errors").append("<p>Invalid flight status</p>");
+        }
+    }
+
+    function resetErrors() {
+        $("div .errors").empty();
     }
 
 });
