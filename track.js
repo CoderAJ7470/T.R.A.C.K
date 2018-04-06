@@ -115,20 +115,35 @@ $(function(){
             statusValid = false;
         }
 
+        /* If all user inputs are valid, then proceed with tab generation; otherwise show the errors and exit */
         if(!userInputValid) {
             showErrors(vaCodeValid, flightNumberValid, aircraftTypeValid, statusValid);
             return false;
         }
         else {
+            if(vaCodeButtonChoice == "Choose a VA"){
+                vaCodeString = vaCodeString.toUpperCase();
+                generateFlightTabs(vaCodeString, flightNumberString, aircraftTypeString, statusString);
+            }
+            else{
+                generateFlightTabs(vaCodeButtonChoice, flightNumberString, aircraftTypeString, statusString);
+            }
             resetErrors();
             resetFlightTabGenerator();
-            generateFlightTab();
         }
     }
 
     /* Generates a flight tab based on the user inputs */
-    function generateFlightTab() {
-        alert("Tab generating successful!");
+    function generateFlightTabs(vaCode, flightNumber, aircraftType, statusCode) {
+        let departingFlight = "";
+        let arrivingFlight = "";
+
+        if($(statusButton).html() == "Dep"){
+            $(".departuresList ul").append("<li>" + vaCode + " | " + flightNumber + " | " + aircraftType + " | " + statusCode + "</li>");
+        }
+        else{
+            $(".arrivalsList ul").append("<li>" + vaCode + " | " + flightNumber + " | " + aircraftType + " | " + statusCode + "</li>");
+        }
     }
 
     /* Re-sets all buttons and fields back to default state */

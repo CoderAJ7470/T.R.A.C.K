@@ -206,4 +206,30 @@ fieldset {
 .flightStatusTable {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin-top: 4em;
+    background-color: var(--slate);
+    color: var(--cream);
+    font-family: "Open Sans", sans-serif;
+    letter-spacing: 0.08em;
+    border-radius: 0.8em;
+}
+
+.flightStatusTable ul {
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+.departuresList li, .arrivalsList li {
+    border: 1px solid var(--cream);
+    border-radius: 0.8em;
+    padding: 0.5em;
+    margin: 1em;
+}
+
+.departuresList li {
+    background-color: var(--departureGreen);
+}
+
+.arrivalsList li {
+    background-color: var(--arrivalBlue);
 }
