@@ -68,7 +68,7 @@ body {
     color: var(--error);
     font-size: 0.7em;
     height: 3em;
-    width: 20em;
+    width: 15em;
     overflow: auto;
 }
 
