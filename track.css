@@ -57,7 +57,7 @@ body {
     background-color: var(--blue);
 }
 
-.menuBar .reset, .menuBar .resetAll {
+.menuBar .resetTabGenerator, .menuBar .resetAll, .menuBar .clearTabsTable {
     background-color: var(--warning);
 }
 
@@ -172,7 +172,7 @@ fieldset {
     border-bottom-right-radius: 0.8em;
 }
 
-.vaCodeInput {
+.vaCodeInput, .vaCodeInput, .fltNoInput, .aircraftTypeInput {
     text-transform: uppercase;
 }
 
@@ -210,7 +210,7 @@ fieldset {
     background-color: var(--slate);
     color: var(--cream);
     font-family: "Open Sans", sans-serif;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     border-radius: 0.8em;
 }
 

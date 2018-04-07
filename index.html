@@ -15,6 +15,8 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
 	<!-- links to the local .css and .js sheets -->
 	<link rel="stylesheet" href="track.css">
 
@@ -28,7 +30,8 @@
 		<h1 class="applicationName">Terminal Region Airspace Control Kit</h1>
 
 		<div class="menuBar">
-			<button class="reset">Reset Tab Info</button>
+			<button class="resetTabGenerator">Reset Tab Info</button>
+			<button class="clearTabsTable">Clear Tabs Table</button>
 			<button class="resetAll">Reset All</button>
 			<button class="helpButton">Help</button>
 		</div>
@@ -81,12 +84,12 @@
 			<h3>Departures</h3>
 			<h3>Arrivals</h3>
 			<div class="departuresList">
-				<ul>
+				<ul id="departures" class="dragAndDropList">
 					
 				</ul>
 			</div>
 			<div class="arrivalsList">
-				<ul>
+				<ul id="arrivals" class="dragAndDropList">
 					
 				</ul>
 			</div>
