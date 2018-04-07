@@ -4,6 +4,7 @@
 $(function(){
 
     /* Variables */
+    let resetTabGenButton = $(".resetTabGenerator");
     let vaCodeButton = $(".chooseVACode");
     let statusButton = $(".chooseFlightStatus");
     let vaCodeInput = $(".vaCodeInput");
@@ -32,7 +33,16 @@ $(function(){
         }
     }
 
+    /* Allows the flight tabs in the flight tabs table to be switched between departures
+    * arrivals, as well as be moved up/down within the same list */
+    $("#departures, #arrivals").sortable({
+        connectWith: ".dragAndDropList"
+    }).disableSelection();
+
+
     /* Click handlers for buttons */
+    $(resetTabGenButton).on("click", resetFlightTabGenerator);
+
     $(vaCodeButton).on("click", function(){
         $(".vaCodes").slideToggle(500, "swing");
     });
@@ -78,7 +88,7 @@ $(function(){
         let flightNumberString = $(fltNoInput).val();
         let aircraftTypeString = $(aircraftTypeInput).val();
         let statusString = $(statusButton).html();
-        let vaCodePattern = new RegExp("[a-zA-Z0-9]{2,3}");
+        let vaCodePattern = new RegExp("^[a-zA-Z]{2,3}$");
         let flightNumberPattern = new RegExp("^[0-9a-zA-Z]+$");
         let vaCodeValid = true;
         let flightNumberValid = true;
@@ -91,7 +101,7 @@ $(function(){
 
         if(vaCodeButtonChoice == "Choose a VA") {
             if(!vaCodePattern.test(vaCodeString) || vaCodeString == "") {
-                // alert("va code invalid");
+                // alert("va code is " + vaCodePattern);
                 userInputValid = false;
                 vaCodeValid = false;
             }
@@ -121,28 +131,32 @@ $(function(){
             return false;
         }
         else {
+            flightNumberString = flightNumberString.toUpperCase();
+            aircraftTypeString = aircraftTypeString.toUpperCase();
             if(vaCodeButtonChoice == "Choose a VA"){
                 vaCodeString = vaCodeString.toUpperCase();
-                generateFlightTabs(vaCodeString, flightNumberString, aircraftTypeString, statusString);
+                generateFlightTabs(vaCodeString, flightNumberString, aircraftTypeString);
             }
             else{
-                generateFlightTabs(vaCodeButtonChoice, flightNumberString, aircraftTypeString, statusString);
+                generateFlightTabs(vaCodeButtonChoice, flightNumberString, aircraftTypeString);
             }
             resetErrors();
             resetFlightTabGenerator();
         }
     }
 
-    /* Generates a flight tab based on the user inputs */
-    function generateFlightTabs(vaCode, flightNumber, aircraftType, statusCode) {
+    /* Generates a flight tab based on the user inputs and puts it in the appropriate column */
+    function generateFlightTabs(vaCode, flightNumber, aircraftType) {
         let departingFlight = "";
         let arrivingFlight = "";
 
         if($(statusButton).html() == "Dep"){
-            $(".departuresList ul").append("<li>" + vaCode + " | " + flightNumber + " | " + aircraftType + " | " + statusCode + "</li>");
+            $(".departuresList ul").append("<li>" + vaCode + " | " + flightNumber + " | " +
+                aircraftType + "</li>");
         }
         else{
-            $(".arrivalsList ul").append("<li>" + vaCode + " | " + flightNumber + " | " + aircraftType + " | " + statusCode + "</li>");
+            $(".arrivalsList ul").append("<li>" + vaCode + " | " + flightNumber + " | " +
+                aircraftType + "</li>");
         }
     }
 
