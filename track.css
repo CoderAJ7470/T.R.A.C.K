@@ -14,6 +14,7 @@
     --departureGreen: #070;
     --arrivalBlue: #005AC8;
     --warning: #900;
+    --emergencyRed: #500;
     --error: #f00;
 }
 
@@ -232,4 +233,23 @@ fieldset {
 
 .arrivalsList li {
     background-color: var(--arrivalBlue);
+}
+
+.departuresList .emergencyButton {
+    background-color: var(--departureGreen);
+}
+
+.arrivalsList .emergencyButton {
+    background-color: var(--arrivalBlue);
+}
+
+.departuresList .emergencyButton, .arrivalsList .emergencyButton {
+    color: var(--cream);
+    font-weight: 200;
+    border: solid 1px var(--cream);
+    border-radius: 0.4em;
+}
+
+.emergencyStatus {
+    background-color: var(--emergencyRed);
 }

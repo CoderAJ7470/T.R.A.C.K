@@ -16,6 +16,7 @@ $(function(){
     let flightNumberValid = "";
     let aircraftTypeValid = "";
     let statusValid = "";
+    let originalColor = true;
     
 
     /* Re-set input fields on window refresh */
@@ -58,6 +59,18 @@ $(function(){
     $(vaCodeInput).change(function(){
         $(vaCodeButton).html("Choose a VA");
     });
+
+    $(document).on("click", ".emergencyButton", function(){
+        if(originalColor){
+            $(this).parent().css("background-color", "red");
+        }
+        else{
+            $(this).parent().css("background-color", "#070");
+        }
+
+        originalColor = !originalColor;
+    });
+    
 
     /* When the user makes a choice from either the VA Codes drop-down list or the status drop-down list,
      * this code makes the list slide back up */
@@ -152,7 +165,7 @@ $(function(){
 
         if($(statusButton).html() == "Dep"){
             $(".departuresList ul").append("<li>" + vaCode + " | " + flightNumber + " | " +
-                aircraftType + "</li>");
+                aircraftType + " | <button class='emergencyButton'>E</button> | <button class='deleteTabButton'>X</button></li>");
         }
         else{
             $(".arrivalsList ul").append("<li>" + vaCode + " | " + flightNumber + " | " +
@@ -167,6 +180,11 @@ $(function(){
         $(fltNoInput).val("");
         $(aircraftTypeInput).val("");
         $(statusButton).html("Status");
+    }
+
+    /* Changes the background color of a flight tab to red to indicate an emergency */
+    function changeToEmergency(){
+        
     }
 
     /* Shows all errors and what needs to be corrected */
