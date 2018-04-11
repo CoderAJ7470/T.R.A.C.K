@@ -16,7 +16,7 @@ $(function(){
     let flightNumberValid = "";
     let aircraftTypeValid = "";
     let statusValid = "";
-    let originalColor = true;
+    // let originalColor = true;
     
 
     /* Re-set input fields on window refresh */
@@ -60,15 +60,39 @@ $(function(){
         $(vaCodeButton).html("Choose a VA");
     });
 
-    $(document).on("click", ".emergencyButton", function(){
-        if(originalColor){
-            $(this).parent().css("background-color", "red");
-        }
-        else{
-            $(this).parent().css("background-color", "#070");
-        }
+    $(document).on("load", focusOnVACodeButton());
 
-        originalColor = !originalColor;
+    // Removes a flight tab from the tabs table
+    $(document).on("click", ".deleteTabButton", function(){
+        $(this).parent().remove();
+    });
+
+    // Allows the user to toggle a tab between normal and emergency
+    $(document).on("click", ".emergencyButton", function(){
+        let statusClass = $(this).parent().attr("class");
+        let originalColor = $(this).parent().css("background-color");
+        let depsGreen = "rgb(0, 119, 0)";
+        let arrsBlue = "rgb(0, 90, 200)";
+        let emergencyColor = "rgb(187, 0, 0);"
+
+        switch(statusClass){
+            case "deps":
+                if(originalColor != depsGreen){
+                    $(this).parent().css("background-color", depsGreen);
+                }
+                else{
+                    $(this).parent().css("background-color", emergencyColor);
+                }
+                break;
+            case "arrs":
+                if(originalColor != arrsBlue){
+                    $(this).parent().css("background-color", arrsBlue);
+                }
+                else{
+                    $(this).parent().css("background-color", emergencyColor);
+                }
+        } // End of switch(statusClass)
+
     });
     
 
@@ -155,6 +179,7 @@ $(function(){
             }
             resetErrors();
             resetFlightTabGenerator();
+            focusOnVACodeButton();
         }
     }
 
@@ -164,12 +189,12 @@ $(function(){
         let arrivingFlight = "";
 
         if($(statusButton).html() == "Dep"){
-            $(".departuresList ul").append("<li>" + vaCode + " | " + flightNumber + " | " +
-                aircraftType + " | <button class='emergencyButton'>E</button> | <button class='deleteTabButton'>X</button></li>");
+            $(".departuresList ul").append("<li class='deps'>" + vaCode + " | " + flightNumber + " | " +
+                aircraftType + " | <button class='emergencyButton'>E</button> | <button class='deleteTabButton'>Del(X)</button></li>");
         }
         else{
-            $(".arrivalsList ul").append("<li>" + vaCode + " | " + flightNumber + " | " +
-                aircraftType + "</li>");
+            $(".arrivalsList ul").append("<li class='arrs'>" + vaCode + " | " + flightNumber + " | " +
+                aircraftType + " | <button class='emergencyButton'>E</button> | <button class='deleteTabButton'>Del(X)</button></li>");
         }
     }
 
@@ -180,11 +205,6 @@ $(function(){
         $(fltNoInput).val("");
         $(aircraftTypeInput).val("");
         $(statusButton).html("Status");
-    }
-
-    /* Changes the background color of a flight tab to red to indicate an emergency */
-    function changeToEmergency(){
-        
     }
 
     /* Shows all errors and what needs to be corrected */
@@ -207,6 +227,10 @@ $(function(){
         if(!isStatusValid) {
             $(".errors").append("<p>Invalid flight status</p>");
         }
+    }
+
+    function focusOnVACodeButton() {
+        $(".chooseVACode").focus();
     }
 
     function resetErrors() {
