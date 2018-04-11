@@ -14,7 +14,7 @@
     --departureGreen: #070;
     --arrivalBlue: #005AC8;
     --warning: #900;
-    --emergencyRed: #500;
+    --emergencyRed: rgb(187, 0, 0);
     --error: #f00;
 }
 
@@ -235,11 +235,11 @@ fieldset {
     background-color: var(--arrivalBlue);
 }
 
-.departuresList .emergencyButton {
+.departuresList .emergencyButton, .departuresList .deleteTabButton {
     background-color: var(--departureGreen);
 }
 
-.arrivalsList .emergencyButton {
+.arrivalsList .emergencyButton, .arrivalsList .deleteTabButton {
     background-color: var(--arrivalBlue);
 }
 
@@ -250,6 +250,7 @@ fieldset {
     border-radius: 0.4em;
 }
 
-.emergencyStatus {
-    background-color: var(--emergencyRed);
+.departuresList .deleteTabButton, .arrivalsList .deleteTabButton {
+    color: var(--cream);
+    border: none;
 }
