@@ -227,11 +227,11 @@ fieldset {
     margin: 1em;
 }
 
-.departuresList li {
+.deps {
     background-color: var(--departureGreen);
 }
 
-.arrivalsList li {
+.arrs {
     background-color: var(--arrivalBlue);
 }
 

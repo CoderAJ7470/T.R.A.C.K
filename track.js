@@ -37,7 +37,15 @@ $(function(){
     /* Allows the flight tabs in the flight tabs table to be switched between departures
     * arrivals, as well as be moved up/down within the same list */
     $("#departures, #arrivals").sortable({
-        connectWith: ".dragAndDropList"
+        connectWith: ".dragAndDropList",
+        receive: function(event, ui){
+            if($(ui.item).hasClass("deps")){
+                $(ui.item).switchClass("deps", "arrs");
+            }
+            else{
+                $(ui.item).switchClass("arrs", "deps");
+            }
+        }
     }).disableSelection();
 
 
@@ -60,6 +68,13 @@ $(function(){
         $(vaCodeButton).html("Choose a VA");
     });
 
+
+
+    /*****************************************************************************************/
+    /********************** EVENT LISTENERS FOR PAGE LOADING/RE-LOADING **********************/
+    /*****************************************************************************************/
+    
+    // Puts the focus on the VA Code drop-down list button when the page 
     $(document).on("load", focusOnVACodeButton());
 
     // Removes a flight tab from the tabs table
@@ -96,6 +111,10 @@ $(function(){
     });
     
 
+    /*****************************************************************************************/
+    /********************** EVENT LISTENERS FOR DROP-DOWN LIST BUTTONS ***********************/
+    /*****************************************************************************************/
+
     /* When the user makes a choice from either the VA Codes drop-down list or the status drop-down list,
      * this code makes the list slide back up */
     $(".vaCodes a").each(function(){
@@ -118,7 +137,13 @@ $(function(){
         });
     });
 
-    /* Checks for blanks and special characters in input fields, as well as valid choices for button drop-downs */
+
+    /*****************************************************************************************/
+    /************************************** FUNCTIONS ****************************************/
+    /*****************************************************************************************/
+
+    /* Checks for blanks and special characters in input fields, as well as ensuring that the user
+    /* chooses an option from the drop-down lists */
     function validateUserInputs() {
         let vaCodeButtonChoice = $(vaCodeButton).html();
         let vaCodeString = $(vaCodeInput).val();
