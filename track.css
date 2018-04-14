@@ -217,7 +217,8 @@ fieldset {
 
 .flightStatusTable ul {
     list-style-type: none;
-    padding-left: 0px;
+    padding: 0.4em 0.4em 0.4em 0em;
+    margin: 0.5em;
 }
 
 .departuresList li, .arrivalsList li {
@@ -227,11 +228,11 @@ fieldset {
     margin: 1em;
 }
 
-.deps {
+.departuresList li {
     background-color: var(--departureGreen);
 }
 
-.arrs {
+.arrivalsList li {
     background-color: var(--arrivalBlue);
 }
 

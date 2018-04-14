@@ -16,8 +16,11 @@ $(function(){
     let flightNumberValid = "";
     let aircraftTypeValid = "";
     let statusValid = "";
-    // let originalColor = true;
-    
+
+    /* Constants */
+    const depsGreen = "rgb(0, 119, 0)";
+    const arrsBlue = "rgb(0, 90, 200)";
+    const emergencyColor = "rgb(187, 0, 0)";
 
     /* Re-set input fields on window refresh */
     window.onload = function(){
@@ -39,11 +42,24 @@ $(function(){
     $("#departures, #arrivals").sortable({
         connectWith: ".dragAndDropList",
         receive: function(event, ui){
-            if($(ui.item).hasClass("deps")){
-                $(ui.item).switchClass("deps", "arrs");
+            if(ui.item.hasClass("deps")){
+                ui.item.removeClass("deps").addClass("arrs");
+
+                if(ui.item.css("background-color") == emergencyColor){
+                    $(".arrivalsList ul").prepend(ui.item);
+                    return;
+                }
+
+                ui.item.css("background-color", arrsBlue);
             }
             else{
-                $(ui.item).switchClass("arrs", "deps");
+                ui.item.removeClass("arrs").addClass("deps");
+
+                if(ui.item.css("background-color") == emergencyColor){
+                    return;
+                }
+
+                ui.item.css("background-color", depsGreen);
             }
         }
     }).disableSelection();
@@ -86,9 +102,6 @@ $(function(){
     $(document).on("click", ".emergencyButton", function(){
         let statusClass = $(this).parent().attr("class");
         let originalColor = $(this).parent().css("background-color");
-        let depsGreen = "rgb(0, 119, 0)";
-        let arrsBlue = "rgb(0, 90, 200)";
-        let emergencyColor = "rgb(187, 0, 0);"
 
         switch(statusClass){
             case "deps":
@@ -210,9 +223,6 @@ $(function(){
 
     /* Generates a flight tab based on the user inputs and puts it in the appropriate column */
     function generateFlightTabs(vaCode, flightNumber, aircraftType) {
-        let departingFlight = "";
-        let arrivingFlight = "";
-
         if($(statusButton).html() == "Dep"){
             $(".departuresList ul").append("<li class='deps'>" + vaCode + " | " + flightNumber + " | " +
                 aircraftType + " | <button class='emergencyButton'>E</button> | <button class='deleteTabButton'>Del(X)</button></li>");
