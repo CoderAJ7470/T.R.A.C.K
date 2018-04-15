@@ -136,7 +136,8 @@ fieldset {
 .inputDivs {
     display: inline-block;
     position: relative;
-    margin-right: 0.8em;
+    margin-left: 0.4em;
+    margin-right: 0.4em;
 }
 
 .vaCodes, .depOrArr {
