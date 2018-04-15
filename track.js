@@ -11,6 +11,8 @@ $(function(){
     let fltNoInput = $(".fltNoInput");
     let aircraftTypeInput = $(".aircraftTypeInput");
     let goButton = $(".generateFlightTabButton");
+    let clearTabsTable = $(".clearTabsTable");
+    let resetAll = $(".resetAll");
     let userInputValid = "";
     let vaCodeValid = "";
     let flightNumberValid = "";
@@ -67,6 +69,13 @@ $(function(){
 
     /* Click handlers for buttons */
     $(resetTabGenButton).on("click", resetFlightTabGenerator);
+
+    $(clearTabsTable).on("click", clearTable);
+
+    $(resetAll).on("click", function(){
+        resetFlightTabGenerator();
+        clearTable();
+    });
 
     $(vaCodeButton).on("click", function(){
         $(".vaCodes").slideToggle(500, "swing");
@@ -240,6 +249,10 @@ $(function(){
         $(fltNoInput).val("");
         $(aircraftTypeInput).val("");
         $(statusButton).html("Status");
+    }
+
+    function clearTable(){
+        $(".flightStatusTable ul").empty();
     }
 
     /* Shows all errors and what needs to be corrected */
