@@ -17,6 +17,9 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
+	<!-- This links to the cycle plugin found at http://malsup.github.com/jquery.cycle.all.js -->
+	<script src="http://malsup.github.io/jquery.cycle.all.js"></script>
+
 	<!-- links to the local .css and .js sheets -->
 	<link rel="stylesheet" href="track.css">
 
@@ -78,7 +81,7 @@
 					<button class="generateFlightTabButton" accesskey="g">Go!</button>
 				</div>
 			</fieldset>
-		</div> <!-- End of flight information tab generator div -->
+		</div> <!-- End of .flightInfoGenerator div -->
 
 		<div class="flightStatusTable">
 			<h3>Departures</h3>
@@ -93,8 +96,44 @@
 					
 				</ul>
 			</div>
+		</div> <!-- End of .flightStatusTable fdiv -->
+
+		<div class="help">
+			<div class="slides">
+				<div class="helpSlides slideOne">
+					Help - Menu Bar Buttons
+					<p><span class="warningButtonsHelp">Reset Tab Info</span>> Clears any entered information in the "Generate Flight Information Tab" section</p>
+					<p><span class="warningButtonsHelp">Clear Tabs Table</span>> Clears all tabs currently present in the flight tabs table</p>
+					<p><span class="warningButtonsHelp">Reset All</span>> Clears/re-sets everything, including any present flight tabs</p>
+				</div>
+				<div class="helpSlides slideTwo">
+					Help - Flight Information Tab Generator
+					<p><span class="tabInfoControlsHelp">Choose a VA</span>> Click to choose a three-letter VA Code OR enter a two/three-letter code of
+						your choosing; see next control | 
+						<span class="tabInfoControlsHelp">Enter VA Code</span>> Enter a VA or real-life airline code in two-letter (IATA) or three-letter
+						(ICAO) format in the white text box provided | 
+						<span class="tabInfoControlsHelp">Flt. No.</span>> Enter a flight number in the white text box provided | 
+						<span class="tabInfoControlsHelp">Enter Aircraft Type</span>> Enter the type of aircraft (This is open ended e.g. 741, B735,
+							A320, 320-200 etc) |
+						<span class="tabInfoControlsHelp">Status</span>> Select whether the flight (for which you are generating a tab) 
+						is an arrival or departure
+					</p>
+				</div>
+				<div class="helpSlides slideThree">
+					Help - Flight Information Tabs Table
+					<p>
+						The flight information tabs table is divided into two columns - departures and arrivals. Depending on what status you select
+						from the <span class="tabInfoControlsHelp">Status</span> drop-down menu in the flight information tab generator (see previous
+						section), the generated tab will either be put in the departures or arrivals column.
+					</p>
+				</div>
+			</div> <!-- End of .slides div -->
+			<div class="slideButtons">
+				<a href="#" id="prevSlides">Previous</a><a href="#" id="nextSlides">Next</a>
+			</div>
 		</div>
-	</div> <!-- End of container div -->
+
+	</div> <!-- End of .container div -->
 </body>
 </html>
 

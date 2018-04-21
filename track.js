@@ -13,11 +13,14 @@ $(function(){
     let goButton = $(".generateFlightTabButton");
     let clearTabsTable = $(".clearTabsTable");
     let resetAll = $(".resetAll");
+    let helpButton = $(".helpButton");
     let userInputValid = "";
     let vaCodeValid = "";
     let flightNumberValid = "";
     let aircraftTypeValid = "";
     let statusValid = "";
+    let slides = $(".slides");
+    let helpInvisible = true;
 
     /* Constants */
     const depsGreen = "rgb(0, 119, 0)";
@@ -67,7 +70,7 @@ $(function(){
     }).disableSelection();
 
 
-    /* Click handlers for buttons */
+    /* Click handlers for menu buttons */
     $(resetTabGenButton).on("click", resetFlightTabGenerator);
 
     $(clearTabsTable).on("click", clearTable);
@@ -75,8 +78,12 @@ $(function(){
     $(resetAll).on("click", function(){
         resetFlightTabGenerator();
         clearTable();
+        checkHelpOpen();
     });
 
+    $(helpButton).on("click", toggleHelp);
+
+    /* Click handlers for flight tab generator */
     $(vaCodeButton).on("click", function(){
         $(".vaCodes").slideToggle(500, "swing");
     });
@@ -255,6 +262,14 @@ $(function(){
         $(".flightStatusTable ul").empty();
     }
 
+    function checkHelpOpen() {
+        if(!helpInvisible){
+            $(".help").slideUp();
+        }
+
+        helpInvisible = !helpInvisible;
+    }
+
     /* Shows all errors and what needs to be corrected */
     function showErrors(isVaCodeValid, isFlightNumberValid, isAircraftValid, isStatusValid) {
         // first clear the error div's contents
@@ -284,5 +299,28 @@ $(function(){
     function resetErrors() {
         $("div .errors").empty();
     }
+
+    function toggleHelp() {
+        if(helpInvisible){
+            $(".help").slideDown();
+        }
+        else {
+            $(".help").slideUp();
+        }
+
+        helpInvisible = !helpInvisible;
+    }
+
+    /*****************************************************************************************/
+    /******************************** CYCLE PLUGIN FUNCTIONS *********************************/
+    /*****************************************************************************************/
+
+    slides.cycle({
+		fx: 'scrollHorz',
+		timeout: 0,
+		speed: 500,
+		prev: '#prevSlides',
+		next: '#nextSlides'
+	});
 
 });
