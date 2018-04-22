@@ -1,5 +1,5 @@
 /* Author: Turbofan */
-/* Last Updated: March 26, 2018 */
+/* Last Updated: April 22, 2018 */
 
 $(function(){
 
@@ -26,6 +26,7 @@ $(function(){
     const depsGreen = "rgb(0, 119, 0)";
     const arrsBlue = "rgb(0, 90, 200)";
     const emergencyColor = "rgb(187, 0, 0)";
+    const KEYCODE_ESC = 27; // Key code for the ESC key
 
     /* Re-set input fields on window refresh */
     window.onload = function(){
@@ -41,6 +42,11 @@ $(function(){
             $(aircraftTypeInput).val("");
         }
     }
+
+
+    /*****************************************************************************************/
+    /******************* SORTABLE FUNCTION THAT HANDLES TAB DRAG-AND-DROP ********************/
+    /*****************************************************************************************/
 
     /* Allows the flight tabs in the flight tabs table to be switched between departures
     * arrivals, as well as be moved up/down within the same list */
@@ -61,6 +67,7 @@ $(function(){
                 ui.item.removeClass("arrs").addClass("deps");
 
                 if(ui.item.css("background-color") == emergencyColor){
+                    $(".departuresList ul").prepend(ui.item);
                     return;
                 }
 
@@ -69,6 +76,10 @@ $(function(){
         }
     }).disableSelection();
 
+
+    /*****************************************************************************************/
+    /********************** CLICK HANDLERS FOR BUTTONS AND TEXT INPUTS ***********************/
+    /*****************************************************************************************/
 
     /* Click handlers for menu buttons */
     $(resetTabGenButton).on("click", resetFlightTabGenerator);
@@ -79,6 +90,7 @@ $(function(){
         resetFlightTabGenerator();
         clearTable();
         checkHelpOpen();
+        resetErrors();
     });
 
     $(helpButton).on("click", toggleHelp);
@@ -97,13 +109,14 @@ $(function(){
     });
 
     $(vaCodeInput).change(function(){
+        $(".vaCodes").slideUp(500, "swing");
         $(vaCodeButton).html("Choose a VA");
     });
 
 
 
     /*****************************************************************************************/
-    /********************** EVENT LISTENERS FOR PAGE LOADING/RE-LOADING **********************/
+    /********* EVENT LISTENERS FOR PAGE LOADING/RE-LOADING AND DOCUMENT-BASED CLICKS *********/
     /*****************************************************************************************/
     
     // Puts the focus on the VA Code drop-down list button when the page 
@@ -112,6 +125,14 @@ $(function(){
     // Removes a flight tab from the tabs table
     $(document).on("click", ".deleteTabButton", function(){
         $(this).parent().remove();
+    });
+
+    // Closes an open drop-down list if it's open (for the VA Codes and Status drop-down lists)
+    $(document).keyup(function(e){
+        if(e.keyCode == KEYCODE_ESC) {
+            $(".vaCodes").slideUp(500, "swing");
+            $(".depOrArr").slideUp(500, "swing");
+        }
     });
 
     // Allows the user to toggle a tab between normal and emergency
@@ -188,11 +209,8 @@ $(function(){
 
         userInputValid = true;
 
-        // alert("vacodeString is " + vaCodeString);
-
         if(vaCodeButtonChoice == "Choose a VA") {
             if(!vaCodePattern.test(vaCodeString) || vaCodeString == "") {
-                // alert("va code is " + vaCodePattern);
                 userInputValid = false;
                 vaCodeValid = false;
             }

@@ -144,7 +144,7 @@ fieldset {
     display: none;
     position: absolute;
     background-color: var(--blue);
-    z-index: 5;
+    z-index: 50;
     border-radius: 0.8em;
 }
 
@@ -285,8 +285,12 @@ fieldset {
     line-height: 2.5em;
 }
 
-.slideTwo p {
+.slideTwo p, .slideThree p {
     margin-top: 0px;
+}
+
+.slideThree, .slideFour {
+    line-height: 1.8em;
 }
 
 .help p {
