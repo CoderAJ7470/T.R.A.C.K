@@ -285,12 +285,17 @@ fieldset {
     line-height: 2.5em;
 }
 
-.slideTwo p, .slideThree p {
+.slideTwo p, .slideThree p, .slideFour p, .slideFive p {
     margin-top: 0px;
 }
 
 .slideThree, .slideFour {
     line-height: 1.8em;
+}
+
+.slideFive a {
+    color: var(--blue);
+    text-decoration: none;
 }
 
 .help p {
@@ -318,4 +323,14 @@ fieldset {
     text-decoration: none;
     color: var(--blue);
     vertical-align: middle;
+}
+
+/*****************************************************************************************/
+/************************************* MEDIA QUERIES *************************************/
+/*****************************************************************************************/
+
+@media only screen and (max-width: 1300px) {
+    .container {
+        width: 80%;
+    }
 }
