@@ -1,7 +1,6 @@
 /* Author: Turbofan */
 /* Last Updated: March 26, 2018 */
 
-
 /********** Page-wide styles **********/
 
 /* Color palette for application */
@@ -29,6 +28,7 @@ body {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
+    font-size: 1em;
 }
 
 /********** Title Area Styles **********/
@@ -39,7 +39,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-style: italic;
     letter-spacing: 0.05em;
-    margin-bottom: 2em;
+    margin-bottom: 1.5em;
 }
 
 /********** Menu Bar Styles **********/
@@ -278,15 +278,16 @@ fieldset {
 }
 
 .slides {
-    height: 151px;
+    height: 17em;
 }
 
 .slideTwo {
     line-height: 2.5em;
 }
 
-.slideTwo p, .slideThree p, .slideFour p, .slideFive p {
+.slideTwo p, .slideThree p, .slideFour p {
     margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .slideThree, .slideFour {
@@ -296,6 +297,11 @@ fieldset {
 .slideFive a {
     color: var(--blue);
     text-decoration: none;
+}
+
+.slideFive p {
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .help p {
@@ -325,12 +331,48 @@ fieldset {
     vertical-align: middle;
 }
 
+
+
 /*****************************************************************************************/
 /************************************* MEDIA QUERIES *************************************/
 /*****************************************************************************************/
 
 @media only screen and (max-width: 1300px) {
+    
+    /********** Page-wide styles **********/
     .container {
-        width: 80%;
+        width: 85%;
+        font-size: 0.6em;
+    }
+
+    .menuBar button {
+        font-size: 1em;
+    }
+
+    .flightInfoGenerator .chooseVACode {
+        letter-spacing: 0.1em;
+        font-size: 1em;
+        width: 12em;
+    }
+
+    .flightInfoGenerator .chooseFlightStatus, .flightInfoGenerator .generateFlightTabButton {
+        font-size: 1em;
+        letter-spacing: 0px;
+    }
+
+    .flightInfoGenerator .userInput {
+        padding: 0.75em;;
+    }
+
+    .flightInfoGenerator .userInput input {
+        font-size: 1em;
+    }
+
+    .vaCodes {
+        width: 12em;
+    }
+
+    .depOrArr {
+        width: 5em;
     }
 }
