@@ -306,7 +306,8 @@ fieldset {
 
 .help p {
     text-align: left;
-    padding: 0.8em;
+    padding: 0.9em;
+    /* width: 100%; */
 }
 
 .warningButtonsHelp {
@@ -342,7 +343,7 @@ fieldset {
     /********** Page-wide styles **********/
     .container {
         width: 85%;
-        font-size: 0.6em;
+        font-size: 0.8em;
     }
 
     .menuBar button {
@@ -361,7 +362,7 @@ fieldset {
     }
 
     .flightInfoGenerator .userInput {
-        padding: 0.75em;;
+        padding: 0.75em;
     }
 
     .flightInfoGenerator .userInput input {
@@ -374,5 +375,25 @@ fieldset {
 
     .depOrArr {
         width: 5em;
+    }
+
+    #departures li, #arrivals li {
+        font-size: 1.2em;
+    }
+
+    .help {
+        font-size: 1.3em;
+    }
+
+    .help p {
+        line-height: 2.0em;
+    }
+
+    .slideTwo p {
+        line-height: 3em;
+    }
+
+    .slides {
+        height: 25em;
     }
 }
