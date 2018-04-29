@@ -132,6 +132,7 @@ $(function(){
         if(e.keyCode == KEYCODE_ESC) {
             $(".vaCodes").slideUp(500, "swing");
             $(".depOrArr").slideUp(500, "swing");
+            $(".help").slideUp(500, "swing");
         }
     });
 
@@ -222,7 +223,7 @@ $(function(){
             flightNumberValid = false;
         }
 
-        if(aircraftTypeString == "") {
+        if(aircraftTypeString == "" || aircraftTypeString.length > 4) {
             // alert("aircraft type not filled");
             userInputValid = false;
             aircraftTypeValid = false;
