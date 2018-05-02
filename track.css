@@ -382,7 +382,7 @@ fieldset {
     }
 
     .help {
-        font-size: 1.3em;
+        font-size: 0.8em;
     }
 
     .help p {
@@ -395,5 +395,12 @@ fieldset {
 
     .slides {
         height: 25em;
+    }
+} /* End of max-with: 1300px media query */
+
+@media only screen and (max-width: 800px) {
+    .inputDivs, .userInput {
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
     }
 }
