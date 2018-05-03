@@ -281,11 +281,15 @@ fieldset {
     height: 17em;
 }
 
-.slideTwo {
-    line-height: 2.5em;
+.slideZero {
+    line-height: 2em;
 }
 
-.slideTwo p, .slideThree p, .slideFour p {
+.slideTwo {
+    line-height: 2em;
+}
+
+.slideZero p, .slideTwo p, .slideThree p, .slideFour p {
     margin-top: 0px;
     margin-bottom: 0px;
 }

@@ -102,11 +102,27 @@
 
 		<div class="help">
 			<div class="slides">
+				<div class="helpSlides slideZero">
+					Help | General instructions and information
+					<p>NOTE: This program will run fine on desktops and laptops, as well as Android devices.
+						The preferred browser is Firefox. You may run this program on an Android phone, however it is recommended you use
+						the phone's landscape orientation for easier usage.
+					</p>
+					<p>Pressing the ESC key (if using a keyboard) will close all open drop-down menus as well as the "Help" section
+						slides.
+					</p>
+					<p>When the program <b>first loads</b> in your browser, <b>focus is set to the</b>
+						<span class="tabInfoControlsHelp">Choose a VA</span> button. This is done so that you can start generating flight tabs immediately.
+						See the slide marked "Help | Accesskeys and Using a Keyboard" for more information.
+					</p>
+				</div>
 				<div class="helpSlides slideOne">
 					Help | Menu Bar Buttons
 					<p><span class="warningButtonsHelp">Reset Tab Info</span>> Clears any entered information in the "Generate Flight Information Tab" section</p>
 					<p><span class="warningButtonsHelp">Clear Tabs Table</span>> Clears all tabs currently present in the flight tabs table</p>
-					<p><span class="warningButtonsHelp">Reset All</span>> Clears/re-sets everything, including any present flight tabs</p>
+					<p><span class="warningButtonsHelp">Reset All</span>> Clears/re-sets everything, including any present flight tabs. Also closes any
+						open drop-down menu, or the Help section if it is open.
+					</p>
 				</div>
 				<div class="helpSlides slideTwo">
 					Help | Flight Information Tab Generator
@@ -118,8 +134,10 @@
 						<span class="tabInfoControlsHelp">Enter Aircraft Type</span>> Enter the type of aircraft. This is open ended e.g. 741, B735,
 							A320; however, the text area is limited to a maximum of four characters (something like B747-400 will give an error) |
 						<span class="tabInfoControlsHelp">Status</span> > Select whether the flight (for which you are generating a tab) 
-						is an arrival or departure | NOTE: The "Help", "Choose a VA" and "Status" buttons are <b>toggle</b> buttons (clicking them will open and
-						close their respective drop-downs). Additionally, you can also close the drop-downs using the "ESC" key on a keyboard.
+						is an arrival or departure | NOTE: The "Choose a VA" and "Status" buttons are <b>toggle</b> buttons. Clicking them repeatedly will
+						open and close their respective drop-downs. | NOTE: You can either "Choose a VA" (from the drop-down) OR fill in a VA/real airline
+						code. E.g. if you have already filled out the "Enter VA Code" input, and then proceed to "Choose a VA" from the drop-down, the
+						program will automatically re-set the "Enter VA Code" input. The converse is also true.
 					</p>
 				</div>
 				<div class="helpSlides slideThree">
@@ -151,7 +169,7 @@
 					</p>
 				</div>
 				<div class="helpSlides slideFive">
-					Help | Accesskeys
+					Help | Accesskeys and Using a Keyboard
 					<p>
 						Note: If you use the accesskeys specified below, you will need to know if there are different accesskey modifiers that have to be
 						clicked/tapped in combination with the accesskey itself. You can find a list of common browsers and how to use the accesskeys for
@@ -173,8 +191,7 @@
 			<div class="slideButtons">
 				<a href="#" id="prevSlides">Previous</a><a href="#" id="nextSlides">Next</a>
 			</div>
-		</div>
-
+		</div> <!-- End of help section div -->
 	</div> <!-- End of .container div -->
 </body>
 </html>
